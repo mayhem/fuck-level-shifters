@@ -12,9 +12,9 @@ void repeat_pin(void)
 
     state = PINB & (1<<PINB2);
     if (state)
-        sbi(PORTB, 4);
+        sbi(PORTB, 1);
     else
-        cbi(PORTB, 4);
+        cbi(PORTB, 1);
 }
 
 ISR(INT0_vect)
@@ -24,7 +24,7 @@ ISR(INT0_vect)
 
 int main (void)
 {
-    DDRB |= (1<< PORTB4);
+    DDRB |= (1<< PORTB2);
 
     // interrupt on INT0 on any change
     MCUCR |= (1<<ISC00);
